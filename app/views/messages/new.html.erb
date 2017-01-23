@@ -1,0 +1,35 @@
+<div class="header">
+  <div class="container">
+    <img src="http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/logo-1m.svg">
+    <h1>Messenger</h1>
+  </div>
+</div>
+
+<div class="create">
+  <div class="container">
+
+    <% if @message.errors.any? %>
+      <div id="error_explanation">
+        <h2>Whoops! You've got some errors!</h2>
+
+        <ul>
+          <% @message.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_for(@message) do |f| %>
+      <div class="field">
+        <%= f.label "Message" %><br>
+        <%= f.text_area :content %>
+
+      </div>
+      <div class="actions">
+        <%= f.submit "Create" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
